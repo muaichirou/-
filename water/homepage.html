@@ -1,0 +1,679 @@
+<!-- <%@ page language="java" contenType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>福建-水管理系统</title>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/homepage.css"/>
+    <link rel="stylesheet" type="text/css" href="css/animate.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+    <link rel="stylesheet" href="css/ol.css">
+    <script src="js/jquery-1.10.2.js"></script>
+
+	
+</head>
+<body class="fade-in">
+    <div id="map" style="width: 100%;height:100%;display:none"></div>
+     <div id="test" style="width: 100%;height:100%;"></div>
+    <div class="container diog">
+    	<span id="close">
+    		x
+    	</span>
+    	
+        <div class="title"><i class="fa fa-map-marker"></i>&nbsp;延庆点位</div>
+            <div class="row clearfix">
+                    <div class="col-md-12 column">
+                        <div class="tabbable" id="tabs-640010">
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a href="#panel-881635" data-toggle="tab">基本信息</a>
+                                </li>
+                                <li>
+                                    <a href="#panel-397203" data-toggle="tab">监测信息</a>
+                                </li>
+                                <li>
+                                    <a href="#panel-440914" data-toggle="tab">周边企业</a>
+                                </li>
+                                <li>
+                                    <a href="#panel-397255" data-toggle="tab">治理进度</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                            	<!--基本信息-->
+                                <div class="tab-pane active" id="panel-881635">
+                                    
+                                    	<!--设备缩略图-->
+                                        <div class="shebeiimg">
+                                        	<!-- Swiper -->
+										  <div class="swiper-container gallery-top">
+										    <div class="swiper-wrapper">
+										            <div class="swiper-slide" style="background-image:url(img/nature1.jpg)"></div>
+										            <div class="swiper-slide" style="background-image:url(img/nature2.jpg)"></div>
+										            <div class="swiper-slide" style="background-image:url(img/nature3.jpg)"></div>
+										            <div class="swiper-slide" style="background-image:url(img/nature4.jpg)"></div>
+										    </div>
+										    <!-- Add Arrows -->
+										    <!--<div class="swiper-button-next swiper-button-white"></div>
+										    <div class="swiper-button-prev swiper-button-white"></div>-->
+										  </div>
+										  <div class="swiper-container gallery-thumbs">
+										    <div class="swiper-wrapper">
+										            <div class="swiper-slide" style="background-image:url(img/nature1.jpg)"></div>
+										            <div class="swiper-slide" style="background-image:url(img/nature2.jpg)"></div>
+										            <div class="swiper-slide" style="background-image:url(img/nature3.jpg)"></div>
+										            <div class="swiper-slide" style="background-image:url(img/nature4.jpg)"></div>
+										    </div>
+										  </div>
+
+                                        </div>
+                                  		<!--设备信息-->
+                                  		<div id="shebeinum">
+                                  			<p>设备编号：YSRD20170000001</p>
+                                  			<p>站点名称：XXXXXXXXXXXX</p>
+                                  			<p>所属地区：xxxxxxxxxxxx</p>
+                                  			<p>所属流域：xxxxxxxxxxxx</p>
+                                  			<p>详细地址：xxxxxxxxxxxx</p>
+                                  			<p>更新时间：2018-06-01 10:17</p>
+
+                                  		</div>
+                                    
+                                </div>
+                                <!--监测信息-->
+                                <div class="tab-pane" id="panel-397203">
+                                    <div id="jianceinfo" class="container">
+                                    	<ul>
+                                    		<li>
+                                    			<span>类型</span>
+                                    			<span>测量值</span>
+                                    			<span>标准值</span>
+                                    			<span>状态</span>
+                                    		</li>
+                                    		<li>
+                                    			<span>COD</span>
+                                    			<span>105↑</span>
+                                    			<span>60</span>
+                                    			<span>超标</span>
+                                    		</li>
+                                    		<li>
+                                    			<span>COD</span>
+                                    			<span>105↓</span>
+                                    			<span>60</span>
+                                    			<span>正常</span>
+                                    		</li>
+                                    		<li>
+                                    			<span>COD</span>
+                                    			<span>105↑</span>
+                                    			<span>60</span>
+                                    			<span>超标</span>
+                                    		</li>
+                                    		<li>
+                                    			<span>COD</span>
+                                    			<span>105↑</span>
+                                    			<span>60</span>
+                                    			<span>正常</span>
+                                    		</li>
+                                    		<li>
+                                    			<span>COD</span>
+                                    			<span>105↑</span>
+                                    			<span>60</span>
+                                    			<span>正常</span>
+                                    		</li>
+                                    	</ul>
+                                   		
+                                    </div>
+                                    <select name="COD" id="selectCod">
+                                    	<option value="Cod">COD</option>
+                                    </select>
+                                    <div id="echart" class="container">
+                                    	
+                                    </div>
+                                </div>
+                                <!--周边企业-->
+                                <div class="tab-pane" id="panel-440914">
+                                   <div id="qiyetab">
+                                   	<ul>
+                                   		<li>
+                                   			<span>企业名称</span>
+                                   			<span>企业类型</span>
+                                   			<span>企业地址</span>
+                                   			<span>排放成分</span>
+                                   		</li>
+                                   		<li>
+                                   			<span>北京XXXX企业</span>
+                                   			<span>重工企业</span>
+                                   			<span>北京石景山</span>
+                                   			<span>COD</span>
+                                   		</li>
+                                   		<li>
+                                   			<span>北京XXXX企业</span>
+                                   			<span>重工企业</span>
+                                   			<span>北京石景山</span>
+                                   			<span>COD</span>
+                                   		</li>
+                                   		<li>
+                                   			<span>北京XXXX企业</span>
+                                   			<span>重工企业</span>
+                                   			<span>北京石景山</span>
+                                   			<span>COD</span>
+                                   		</li>
+                                   		<li>
+                                   			<span>北京XXXX企业</span>
+                                   			<span>重工企业</span>
+                                   			<span>北京石景山</span>
+                                   			<span>COD</span>
+                                   		</li>
+                                   		<li>
+                                   			<span>北京XXXX企业</span>
+                                   			<span>重工企业</span>
+                                   			<span>北京石景山</span>
+                                   			<span>COD</span>
+                                   		</li>
+                                   		<li>
+                                   			<span>北京XXXX企业</span>
+                                   			<span>重工企业</span>
+                                   			<span>北京石景山</span>
+                                   			<span>COD</span>
+                                   		</li>
+                                   		<li>
+                                   			<span>北京XXXX企业</span>
+                                   			<span>重工企业</span>
+                                   			<span>北京石景山</span>
+                                   			<span>COD</span>
+                                   		</li>
+                                   		<li>
+                                   			<span>北京XXXX企业</span>
+                                   			<span>重工企业</span>
+                                   			<span>北京石景山</span>
+                                   			<span>COD</span>
+                                   		</li>
+                                   		<li>
+                                   			<span>北京XXXX企业</span>
+                                   			<span>重工企业</span>
+                                   			<span>北京石景山</span>
+                                   			<span>COD</span>
+                                   		</li>
+                                   		<li>
+                                   			<span>北京XXXX企业</span>
+                                   			<span>重工企业</span>
+                                   			<span>北京石景山</span>
+                                   			<span>COD</span>
+                                   		</li>
+                                   		<li>
+                                   			<span>北京XXXX企业</span>
+                                   			<span>重工企业</span>
+                                   			<span>北京石景山</span>
+                                   			<span>COD</span>
+                                   		</li>
+                                   		<li>
+                                   			<span>北京XXXX企业</span>
+                                   			<span>重工企业</span>
+                                   			<span>北京石景山</span>
+                                   			<span>COD</span>
+                                   		</li>
+                                   	</ul>
+                                   </div>
+                                </div>
+                                <!--治理进度-->
+                                <div class="tab-pane" id="panel-397255">
+                                    <div id="jindu">
+                                    	第一次治理：
+                                    	<br />治理前：
+                                    	<br />治理后：
+                                    	<br />整体改善率：
+                                    	
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+    <div id="fadetoggle">
+    	隐藏菜单
+    </div>
+   	<div id="colortip">
+   		<ul>
+   			<li>
+   				<div class="line water_line"></div><span>水系图</span>
+   			</li>
+   			<li>
+   				<div class="line water_squery"></div><span>热点图</span>
+   			</li>
+   			<li>
+   				<div class="line water_wrap"></div><span>乡镇边界</span>
+   			</li>
+   			<li>
+   				<div class="line water_break"></div><span>断面</span>
+   			</li>
+   			<li>
+   				<div class="line water_get"></div><span>取水口</span>
+   			</li>
+   			<li>
+   				<div class="line water_fei"></div><span>废水源</span>
+   			</li>
+   			<li>
+   				<div class="line water_shebei"></div><span>设备图</span>
+   			</li>
+   		</ul>
+   	</div>
+   	<div id="div"></div>
+    <div id="box" class="container">
+        <!-- 右上角地图站点选择 -->
+        <div class="tab">
+            <h4>监测站点<div class="blueline"></div></h4>
+            <ul>
+                <li id="water_country_point">国控点位</li>
+                <li id="water_province_point">省站点位</li>
+                <li id="water_equipment_point">设备点位</li>
+                
+                
+            </ul>
+            <h4>气象分布<div class="blueline"></div></h4>
+            <ul> 
+            	<li>风场图</li>
+                <!--<li>卫星真彩图</li>-->
+                <!--<li>风速与湿度</li>-->
+            </ul>
+            <h4>行业信息<div class="blueline"></div></h4>
+            <ul>
+                
+                <li id="water_qushui">取水口</li>
+                <li id="water_source">饮水源</li>
+                <li id="water_feiqi">废水源</li>
+                <li id="water_xly_point">汇水域</li>
+                
+            </ul>
+            <h4>分析<div class="blueline"></div></h4>
+            <ul>
+                
+                <li id="hot_tab">热点网格</li>
+                <li id="water_industry_point">工业企业</li>
+                <li id="water_landused">土地利用率</li>
+                
+            </ul>
+            <h4>地理信息<div class="blueline"></div></h4>
+            <ul>
+                <li id="water_img" class="activee">水系图</li>
+                <li id="water_section">断面</li>
+                <li id="water_xz_point">乡镇边界</li>
+            </ul>
+        </div>
+        
+        <!-- 控制站点 -->
+        <div class="three_point">
+            <ul>
+            	<!--国控点位-->
+                <li>
+                   	<span id="guokongpoint" style="float: right;margin-right: 30px;">国控点位</span>
+                    <div id="china_point">
+                        <div class="Topsearch">
+                            <input type="text" name="point" id="search" placeholder="请输入点位名称"> <i class="fa fa-cloud-download black out icon_exports"></i>
+                        </div>
+                             <div class="tabdata">
+                                <table width="100%" border="1">
+                                    <tr>
+                                        <td>点位名称</td>
+                                        <td>水质质量</td>
+                                        <td>COD</td>
+                                        <td>DO</td>
+                                        <td>NHx</td>
+                                        <td>MnO4</td>
+                                        <td>PH</td>
+                                        <td>操作</td>
+                                    </tr>
+                                    <tr>
+                                        <td>马甸桥</td>
+                                        <td>Ⅲ</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td class="czdd">查看</td>
+                                         
+                                    </tr>
+                                    <tr>
+                                        <td>马甸桥</td>
+                                        <td>Ⅲ</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td class="czdd">查看</td>
+                                         
+                                    </tr>
+                                    <tr>
+                                        <td>马甸桥</td>
+                                        <td>Ⅲ</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td class="czdd">查看</td>
+                                         
+                                    </tr>
+                                    <tr>
+                                        <td>马甸桥</td>
+                                        <td>Ⅲ</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td class="czdd">查看</td>
+                                         
+                                    </tr>
+                                    <tr>
+                                        <td>马甸桥</td>
+                                        <td>Ⅲ</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td class="czdd">查看</td>
+                                         
+                                    </tr>
+                                    <tr>
+                                        <td>马甸桥</td>
+                                        <td>Ⅲ</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td class="czdd">查看</td>
+                                         
+                                    </tr>
+                                   
+                                    
+                                </table>
+    
+                            </div>
+                    </div>
+                </li>
+              	<!--省控点位-->
+              	<li>
+                  	<span id="shengkongpoint" style="float: right;margin-right: 30px;">省控点位</span>
+                    <div id="china_child_point">
+                        <div class="Topsearch">
+                          <input type="text" name="point" id="search" placeholder="请输入点位名称"> <i class="fa fa-cloud-download black out icon_exports"></i>
+                        </div>
+                            <div class="tabdata">
+                                <table width="100%" border="1">
+                                    <tr>
+                                        <td>点位名称</td>
+                                        <td>水质质量</td>
+                                        <td>COD</td>
+                                        <td>DO</td>
+                                        <td>NHx</td>
+                                        <td>MnO4</td>
+                                        <td>PH</td>
+                                        <td>操作</td>
+                                    </tr>
+                                    <tr>
+                                        <td>南靖洪濑汤坑桥</td>
+                                        <td>Ⅲ</td>
+                                        <td>6.7</td>
+                                        <td>7.6</td>
+                                        <td>0.56</td>
+                                        <td>1.52</td>
+                                        <td>6.95</td>
+                                        <td class="czdd">查看</td>
+                                         
+                                    </tr>
+                                    <tr>
+                                        <td>南靖牛崎头桥</td>
+                                        <td>Ⅲ</td>
+                                        <td>17</td>
+                                        <td>6.32</td>
+                                        <td>0.59</td>
+                                        <td>3.76</td>
+                                        <td>6.89</td>
+                                        <td class="czdd">查看</td>
+                                         
+                                    </tr>
+                                    <tr>
+                                        <td>南靖靖城桥</td>
+                                        <td>Ⅲ</td>
+                                        <td>15</td>
+                                        <td>7.08</td>
+                                        <td>0.52</td>
+                                        <td>2.85</td>
+                                        <td>6.71</td>
+                                        <td class="czdd">查看</td>
+                                         
+                                    </tr>
+                                    <tr>
+                                        <td>上坂</td>
+                                        <td>Ⅲ</td>
+                                        <td>17.67</td>
+                                        <td>7.74</td>
+                                        <td>0.859</td>
+                                        <td>2.757</td>
+                                        <td>6.863</td>
+                                        <td class="czdd">查看</td>
+                                         
+                                    </tr>
+                                    <tr>
+                                        <td>华安西陂</td>
+                                        <td>Ⅲ</td>
+                                        <td>5</td>
+                                        <td>9.2</td>
+                                        <td>0.57</td>
+                                        <td>1.83</td>
+                                        <td>7.09</td>
+                                        <td class="czdd">查看</td>
+                                         
+                                    </tr>
+                                    <tr>
+                                        <td>浦南水文站</td>
+                                        <td>Ⅲ</td>
+                                        <td>5</td>
+                                        <td>8.2</td>
+                                        <td>0.708</td>
+                                        <td>1.7</td>
+                                        <td>7.02</td>
+                                        <td class="czdd">查看</td>
+                                         
+                                    </tr>
+                                   
+                                    
+                                </table>
+    
+                            </div>
+                    </div>
+                </li>
+           		<!--设备点位-->
+           		<li>
+                    <span id="shebeipoint" style="float: right;margin-right: 30px;">设备点位</span>
+                    <div id="shebei_point">
+                        <div class="Topsearch">
+                            <input type="text" name="point" id="search" placeholder="请输入点位名称"> 
+                            <i class="fa fa-cloud-download black out icon_exports"></i>
+
+                        </div>
+                        <div class="tabdata">
+                                <table width="100%" border="1">
+                                    <tr>
+                                        <td>点位名称</td>
+                                        <td>水质质量</td>
+                                        <td>COD</td>
+                                        <td>DO</td>
+                                        <td>NHx</td>
+                                        <td>MnO4</td>
+                                        <td>PH</td>
+                                        <td>操作</td>
+                                    </tr>
+                                    <tr>
+                                        <td>马甸桥</td>
+                                        <td>Ⅲ</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td class="czdd">查看</td>
+                                         
+                                    </tr>
+                                    <tr>
+                                        <td>马甸桥</td>
+                                        <td>Ⅲ</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td class="czdd">查看</td>
+                                         
+                                    </tr>
+                                    <tr>
+                                        <td>马甸桥</td>
+                                        <td>Ⅲ</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td class="czdd">查看</td>
+                                         
+                                    </tr>
+                                    <tr>
+                                        <td>马甸桥</td>
+                                        <td>Ⅲ</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td class="czdd">查看</td>
+                                         
+                                    </tr>
+                                    <tr>
+                                        <td>马甸桥</td>
+                                        <td>Ⅲ</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td class="czdd">查看</td>
+                                         
+                                    </tr>
+                                    <tr>
+                                        <td>马甸桥</td>
+                                        <td>Ⅲ</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td class="czdd">查看</td>
+                                         
+                                    </tr>
+                                   
+                                    
+                                </table>
+    
+                            </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+       
+    </div>  
+    <!-- 左上角位置选择 -->
+    <!-- <div class="select_input">-->
+            <ul>
+                <form action="">
+                    <li>
+                        <select name="citybaba" id="citybaba" role="alert">
+                            <option label="北京市"></option>
+                            <option label="天津市"></option>
+                            <option label="河北省"></option>
+                        </select>    
+                    </li>
+                    <li>
+                        <select name="city" id="city">
+                            <option label="北京市"></option>
+                        </select>
+                    </li>
+                    <li>
+                        <select name="qu" id="qu">
+                            <option label="昌平区"></option>
+                        </select>
+                    </li>
+                    <li>
+                        <select name="city" id="city">
+                            <option label="请选择"></option>
+                        </select>   
+                    </li>
+                    <li>
+                        <button id="sure">确定</button>
+                    </li>
+                </form>
+            </ul>
+        </div>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/ol-debug.js"></script>
+    <script src="js/ol.js"></script>
+    <script type="text/javascript" src="js/jquery.table2excel.min.js"></script>
+    <script type="text/javascript" src="css/GHMap.js"></script>
+    <script type="text/javascript" src="js/homePageown.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+ 	
+
+   
+   
+    <!--Echarts-->
+	<script type="text/javascript">
+		var dom = document.getElementById("echart");
+		var myChart = echarts.init(dom);
+		var app = {};
+		option = null;
+		option = {
+		    xAxis: {
+		        type: 'category',
+		        data: ['1:00', '5:00', '9:00', '13:00', '17:00', '21:00',]
+		    },
+			title: {
+		        left: 'center',
+		        text: '溶解氧',
+		    },
+		    
+		    yAxis: {
+		        type: 'value'
+		    },
+		    series: [{
+
+		//  	smooth:true,         圆滑
+		//          symbol: 'none',
+		        sampling: 'average',
+		        label: {
+		                normal: {
+		                    show: true,
+		                    position: 'top'
+		                }
+		            },
+		        data: [8.2, 9.9, 11.4, 9.5, 6.7, 7.8],
+		        type: 'line'
+		    }]
+		};
+		;
+		if (option && typeof option === "object") {
+		    myChart.setOption(option, true);
+		}
+       </script>
+</body>
+</html>
